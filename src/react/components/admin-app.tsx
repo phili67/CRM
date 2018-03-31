@@ -21,17 +21,7 @@ class EventModal extends React.Component<EventFormProps, EventFormState> {
       })
       .then(response => response.json())
       .then(data => {
-        const thisEvent = data.Events[0];
-        this.setState ({ event: { 
-            desc: thisEvent.Desc,
-            end: thisEvent.End,
-            id: thisEvent.Id,
-            inActive: thisEvent.InActive,
-            start: thisEvent.Start,
-            text: thisEvent.Text,
-            title: thisEvent.Title,
-            type: thisEvent.Type
-          }})
+        this.setState ({ event: data})
         }
       );
   }
@@ -78,7 +68,7 @@ class EventModal extends React.Component<EventFormProps, EventFormState> {
       <div>
         <Modal show={true} onHide={function () { }} >
           <Modal.Header>
-            <h2>{this.state.event.title}</h2>
+            <h2>{this.state.event.Title}</h2>
           </Modal.Header>
           <Modal.Body>
             <table>
@@ -87,7 +77,7 @@ class EventModal extends React.Component<EventFormProps, EventFormState> {
                   Event Type
                 </td>
                 <td>
-                  {this.state.event.type}
+                  {this.state.event.Type}
                 </td>
               </tr>
               <tr>
@@ -95,7 +85,7 @@ class EventModal extends React.Component<EventFormProps, EventFormState> {
                  Event Description
                 </td>
                 <td>
-                  {this.state.event.desc}
+                  {this.state.event.Desc}
                 </td>
               </tr>
               <tr>
@@ -103,7 +93,7 @@ class EventModal extends React.Component<EventFormProps, EventFormState> {
                   Date Range
                 </td>
                 <td>
-                  {this.state.event.start} {this.state.event.end}
+                  {this.state.event.Start} {this.state.event.End}
                 </td>
               </tr>
               <tr>
@@ -119,7 +109,7 @@ class EventModal extends React.Component<EventFormProps, EventFormState> {
                   Text
                 </td>
                 <td>
-                  {this.state.event.text}
+                  {this.state.event.Text}
                 </td>
               </tr>
             </table>
@@ -140,7 +130,7 @@ class EventModal extends React.Component<EventFormProps, EventFormState> {
       <div>
         <Modal show={true} onHide={function () { }} >
           <Modal.Header>
-            <input name="title" value={this.state.event.title} onChange={this.handleInputChange} />
+            <input name="Title" value={this.state.event.Title} onChange={this.handleInputChange} />
           </Modal.Header>
           <Modal.Body>
             <table>
@@ -149,7 +139,7 @@ class EventModal extends React.Component<EventFormProps, EventFormState> {
                   Event Type
                 </td>
                 <td>
-                  <input name="type" value={this.state.event.type.toString()} onChange={this.handleInputChange}/>
+                  <input name="Type" value={this.state.event.Type.toString()} onChange={this.handleInputChange}/>
                 </td>
               </tr>
               <tr>
@@ -157,7 +147,7 @@ class EventModal extends React.Component<EventFormProps, EventFormState> {
                  Event Description
                 </td>
                 <td>
-                  <input name="desc" value={this.state.event.desc} onChange={this.handleInputChange}/>
+                  <input name="Desc" value={this.state.event.Desc} onChange={this.handleInputChange}/>
                 </td>
               </tr>
               <tr>
@@ -165,8 +155,8 @@ class EventModal extends React.Component<EventFormProps, EventFormState> {
                   Date Range
                 </td>
                 <td>
-                  <input name="start" value={this.state.event.start} onChange={this.handleInputChange}/>
-                  <input name="end" value={this.state.event.end} onChange={this.handleInputChange}/>
+                  <input name="Start" value={this.state.event.Start} onChange={this.handleInputChange}/>
+                  <input name="End" value={this.state.event.End} onChange={this.handleInputChange}/>
                 </td>
               </tr>
               <tr>
@@ -182,7 +172,7 @@ class EventModal extends React.Component<EventFormProps, EventFormState> {
                   Text
                 </td>
                 <td>
-                  <input name="text" value={this.state.event.text} onChange={this.handleInputChange}/>
+                  <input name="Text" value={this.state.event.Text} onChange={this.handleInputChange}/>
                 </td>
               </tr>
             </table>
@@ -234,14 +224,14 @@ export default class App extends React.Component<{unmountCall:Function, eventId:
 
 
 interface CRMEvent {
-  desc: string,
-  end: string,
-  id: number,
-  inActive: boolean,
-  start: string,
-  text: string,
-  type: number,
-  title: string
+  Desc: string,
+  End: string,
+  Id: number,
+  InActive: boolean,
+  Start: string,
+  Text: string,
+  Type: number,
+  Title: string
 }
 
 interface EventFormProps {
